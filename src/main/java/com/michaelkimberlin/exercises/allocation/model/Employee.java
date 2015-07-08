@@ -44,6 +44,7 @@ public class Employee {
 	}
 
 	public Employee clearSubordinates() {
+		subordinates.clear();
 		return this;
 	}
 	
