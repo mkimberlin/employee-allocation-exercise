@@ -44,7 +44,7 @@ public class Employee {
 	}
 
 	public Employee clearSubordinates() {
-		return null;
+		return this;
 	}
 	
 	public Set<Employee> getSubordinates() {

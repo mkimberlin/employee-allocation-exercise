@@ -57,6 +57,10 @@ public class EmployeeTest {
 	
 	@Test
 	public void shouldClearSubordinates() {
-		fail();
+		Employee manager = new Employee(EmployeeType.MANAGER).addSubordinate(new Employee(EmployeeType.DEVELOPER));
+		
+		manager.clearSubordinates();
+		
+		assertThat(manager.getSubordinates(), empty());
 	}
 }
