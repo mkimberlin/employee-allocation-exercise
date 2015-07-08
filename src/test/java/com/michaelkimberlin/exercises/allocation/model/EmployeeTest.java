@@ -8,12 +8,14 @@ public class EmployeeTest {
 
 	@Test(expected=UnsupportedOperationException.class)
 	public void shouldReturnUnmodifiableSetOfEmployees() {
-		fail();
+		Employee employee = new Employee(EmployeeType.MANAGER);
+		employee.getSubordinates().add(new Employee(EmployeeType.DEVELOPER));
 	}
 	
 	@Test(expected=IllegalStateException.class)
 	public void shouldThrowIllegalStateExceptionWhenSubordinateAddedToDeveloper() {
-		fail();
+		Employee employee = new Employee(EmployeeType.DEVELOPER);
+		employee.addSubordinate(new Employee(EmployeeType.MANAGER));
 	}
 
 	@Test(expected=IllegalStateException.class)

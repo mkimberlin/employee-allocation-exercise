@@ -1,5 +1,6 @@
 package com.michaelkimberlin.exercises.allocation.model;
 
+import com.google.common.collect.ImmutableSet;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +29,10 @@ public class Employee {
 	 */
 	public Employee addSubordinate(Employee subordinate) {
 		return null;
+	}
+
+	public Set<Employee> getSubordinates() {
+		return ImmutableSet.copyOf(subordinates);
 	}
 	
 }
