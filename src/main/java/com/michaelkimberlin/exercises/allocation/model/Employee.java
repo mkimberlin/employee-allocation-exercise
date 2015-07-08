@@ -38,6 +38,8 @@ public class Employee {
 			throw new IllegalStateException("Subordinates can only be added to managers.");
 		}
 		
+		subordinates.add(subordinate);
+		
 		return this;
 	}
 
