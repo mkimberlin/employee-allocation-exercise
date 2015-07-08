@@ -43,6 +43,10 @@ public class Employee {
 		return this;
 	}
 
+	public Employee clearSubordinates() {
+		return null;
+	}
+	
 	public Set<Employee> getSubordinates() {
 		return ImmutableSet.copyOf(subordinates);
 	}

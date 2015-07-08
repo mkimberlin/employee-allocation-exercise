@@ -4,6 +4,7 @@ import static org.junit.Assert.fail;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.empty;
 
 import org.junit.Test;
 
@@ -36,7 +37,7 @@ public class EmployeeTest {
 	public void shouldReturnThisEmployeeWhenAddingSubordinate() {
 		Employee employee = new Employee(EmployeeType.MANAGER);
 		
-		assertThat(employee, equalTo(employee.addSubordinate(new Employee(EmployeeType.DEVELOPER))));
+		assertThat(employee.addSubordinate(new Employee(EmployeeType.DEVELOPER)), equalTo(employee));
 	}
 	
 	@Test
@@ -45,6 +46,13 @@ public class EmployeeTest {
 		Employee manager = new Employee(EmployeeType.MANAGER).addSubordinate(subordinate);
 		
 		assertThat(manager.getSubordinates(), hasItem(subordinate));
+	}
+	
+	@Test
+	public void shouldReturnThisEmployeeWhenClearingSubordinates() {
+		Employee manager = new Employee(EmployeeType.MANAGER);
+		
+		assertThat(manager.clearSubordinates(), equalTo(manager));
 	}
 	
 	@Test
