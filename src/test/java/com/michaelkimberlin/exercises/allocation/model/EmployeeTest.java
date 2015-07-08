@@ -1,6 +1,8 @@
 package com.michaelkimberlin.exercises.allocation.model;
 
 import static org.junit.Assert.fail;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.Test;
 
@@ -27,6 +29,12 @@ public class EmployeeTest {
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldThrowIllegalArgumentExceptionWhenNullSubordinateAdded() {
 		new Employee(EmployeeType.MANAGER).addSubordinate(null);
+	}
+	
+	@Test
+	public void shouldReturnThisEmployeeWhenAddingSubordinate() {
+		Employee employee = new Employee(EmployeeType.MANAGER);
+		assertThat(employee, equalTo(employee.addSubordinate(new Employee(EmployeeType.DEVELOPER))));
 	}
 	
 	@Test

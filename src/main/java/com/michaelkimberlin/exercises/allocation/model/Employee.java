@@ -26,6 +26,8 @@ public class Employee {
 	 * 
 	 * @param subordinate  the subordinate to be added to the set of subordinates
 	 * @return this employee
+	 * @throws IllegalArgumentException  if the provided subordinate is null
+	 * @throws IllegalStateException  if this employee is not a manager
 	 */
 	public Employee addSubordinate(Employee subordinate) {
 		if(subordinate == null) {
@@ -35,7 +37,7 @@ public class Employee {
 		if(EmployeeType.MANAGER != type) {
 			throw new IllegalStateException("Subordinates can only be added to managers.");
 		}
-			
+		
 		return null;
 	}
 
