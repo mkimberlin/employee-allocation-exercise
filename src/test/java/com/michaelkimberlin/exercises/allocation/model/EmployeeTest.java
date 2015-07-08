@@ -26,7 +26,7 @@ public class EmployeeTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldThrowIllegalArgumentExceptionWhenNullSubordinateAdded() {
-		fail();
+		new Employee(EmployeeType.MANAGER).addSubordinate(null);
 	}
 	
 	@Test
