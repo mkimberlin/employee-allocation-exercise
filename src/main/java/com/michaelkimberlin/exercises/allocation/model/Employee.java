@@ -28,8 +28,8 @@ public class Employee {
 	 * @return this employee
 	 */
 	public Employee addSubordinate(Employee subordinate) {
-		if(EmployeeType.DEVELOPER == type) {
-			throw new IllegalStateException("Subordinates cannot be added to developers.");
+		if(EmployeeType.MANAGER != type) {
+			throw new IllegalStateException("Subordinates can only be added to managers.");
 		}
 			
 		return null;

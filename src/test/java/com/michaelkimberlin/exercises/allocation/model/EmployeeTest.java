@@ -20,7 +20,8 @@ public class EmployeeTest {
 
 	@Test(expected=IllegalStateException.class)
 	public void shouldThrowIllegalStateExceptionWhenSubordinateAddedToQA() {
-		fail();
+		Employee employee = new Employee(EmployeeType.QA);
+		employee.addSubordinate(new Employee(EmployeeType.MANAGER));
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
