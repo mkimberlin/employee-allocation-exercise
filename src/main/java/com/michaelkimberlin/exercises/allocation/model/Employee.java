@@ -28,6 +28,10 @@ public class Employee {
 	 * @return this employee
 	 */
 	public Employee addSubordinate(Employee subordinate) {
+		if(subordinate == null) {
+			throw new IllegalArgumentException("Subordinate employees cannot be null.");
+		}
+		
 		if(EmployeeType.MANAGER != type) {
 			throw new IllegalStateException("Subordinates can only be added to managers.");
 		}
