@@ -44,6 +44,19 @@ public class AllocationCalculatorTest {
 	
 	@Test
 	public void shouldRecursivelyAddAllSubordinateAllocations() {
-		fail();
+		AllocationCalculator calculator = new AllocationCalculator();
+		Employee employee = new Employee(EmployeeType.MANAGER).addSubordinate(new Employee(EmployeeType.DEVELOPER))
+				.addSubordinate(new Employee(EmployeeType.QA));
+		Employee otherManager = new Employee(EmployeeType.MANAGER).addSubordinate(new Employee(EmployeeType.DEVELOPER))
+				.addSubordinate(new Employee(EmployeeType.QA));
+		employee.addSubordinate(otherManager);
+		
+		int allocation = calculator.calculateExpenseAllocation(employee);
+		
+		int totalAllocation = 2 * (EmployeeType.MANAGER.getAllocation() +
+		                      EmployeeType.DEVELOPER.getAllocation() +
+		                      EmployeeType.QA.getAllocation());
+		
+		assertThat(allocation, equalTo(totalAllocation));
 	}
 }
