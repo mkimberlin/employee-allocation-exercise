@@ -51,5 +51,9 @@ public class Employee {
 	public Set<Employee> getSubordinates() {
 		return ImmutableSet.copyOf(subordinates);
 	}
+
+	public EmployeeType getType() {
+		return type;
+	}
 	
 }

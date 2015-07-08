@@ -7,11 +7,11 @@ import com.michaelkimberlin.exercises.allocation.model.Employee;
  */
 public class AllocationCalculator {
 
-	public long calculateExpenseAllocation(Employee employee) {
+	public int calculateExpenseAllocation(Employee employee) {
 		if(employee == null) {
 			throw new IllegalArgumentException("Cannot calculate allocation for null employee.");
 		}
-		return 0;
+		return employee.getType().getAllocation();
 	}
 
 }

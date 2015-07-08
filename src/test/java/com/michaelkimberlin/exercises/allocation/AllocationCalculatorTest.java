@@ -1,8 +1,13 @@
 package com.michaelkimberlin.exercises.allocation;
 
 import static org.junit.Assert.fail;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+
+import com.michaelkimberlin.exercises.allocation.model.Employee;
+import com.michaelkimberlin.exercises.allocation.model.EmployeeType;
 
 public class AllocationCalculatorTest {
 
@@ -15,7 +20,12 @@ public class AllocationCalculatorTest {
 	
 	@Test
 	public void shouldReturnEmployeeAllocationForEmployeesWithNoSubordinates() {
-		fail();
+		AllocationCalculator calculator = new AllocationCalculator();
+		Employee employee = new Employee(EmployeeType.DEVELOPER);
+		
+		int allocation = calculator.calculateExpenseAllocation(employee);
+		
+		assertThat(new Integer(allocation), equalTo(EmployeeType.DEVELOPER.getAllocation()));
 	}
 	
 	@Test
