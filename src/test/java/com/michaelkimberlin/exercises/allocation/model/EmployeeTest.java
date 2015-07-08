@@ -3,6 +3,7 @@ package com.michaelkimberlin.exercises.allocation.model;
 import static org.junit.Assert.fail;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
 
 import org.junit.Test;
 
@@ -34,12 +35,16 @@ public class EmployeeTest {
 	@Test
 	public void shouldReturnThisEmployeeWhenAddingSubordinate() {
 		Employee employee = new Employee(EmployeeType.MANAGER);
+		
 		assertThat(employee, equalTo(employee.addSubordinate(new Employee(EmployeeType.DEVELOPER))));
 	}
 	
 	@Test
 	public void shouldAddEmployeeToSubordinatesForManager() {
-		fail();
+		Employee subordinate = new Employee(EmployeeType.DEVELOPER);
+		Employee manager = new Employee(EmployeeType.MANAGER).addSubordinate(subordinate);
+		
+		assertThat(manager.getSubordinates(), hasItem(subordinate));
 	}
 	
 	@Test
