@@ -25,12 +25,21 @@ public class AllocationCalculatorTest {
 		
 		int allocation = calculator.calculateExpenseAllocation(employee);
 		
-		assertThat(new Integer(allocation), equalTo(EmployeeType.DEVELOPER.getAllocation()));
+		assertThat(allocation, equalTo(EmployeeType.DEVELOPER.getAllocation()));
 	}
 	
 	@Test
 	public void shouldReturnSumOfEmployeeAllocationsForSubordinates() {
-		fail();
+		AllocationCalculator calculator = new AllocationCalculator();
+		Employee employee = new Employee(EmployeeType.MANAGER).addSubordinate(new Employee(EmployeeType.DEVELOPER))
+				.addSubordinate(new Employee(EmployeeType.QA));
+		
+		int allocation = calculator.calculateExpenseAllocation(employee);
+		
+		int totalAllocation = EmployeeType.MANAGER.getAllocation() +
+		                      EmployeeType.DEVELOPER.getAllocation() +
+		                      EmployeeType.QA.getAllocation();
+		assertThat(allocation, equalTo(totalAllocation));
 	}
 	
 	@Test
