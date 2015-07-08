@@ -6,9 +6,11 @@ import org.junit.Test;
 
 public class AllocationCalculatorTest {
 
-	@Test
-	public void shouldThrowInvalidArgumentExceptionIfGivenEmployeeIsNull() {
-		fail();
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldThrowIllegalArgumentExceptionIfGivenEmployeeIsNull() {
+		AllocationCalculator calculator = new AllocationCalculator();
+		
+		calculator.calculateExpenseAllocation(null);
 	}
 	
 	@Test
