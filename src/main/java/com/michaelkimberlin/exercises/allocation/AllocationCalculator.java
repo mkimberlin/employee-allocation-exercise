@@ -11,7 +11,13 @@ public class AllocationCalculator {
 		if(employee == null) {
 			throw new IllegalArgumentException("Cannot calculate allocation for null employee.");
 		}
-		return employee.getType().getAllocation();
+		
+		int allocation = employee.getType().getAllocation();
+		for(Employee subordinate: employee.getSubordinates()) {
+			allocation += subordinate.getType().getAllocation();
+		}
+		
+		return allocation;
 	}
 
 }
