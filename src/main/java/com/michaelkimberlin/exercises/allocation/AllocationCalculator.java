@@ -14,7 +14,7 @@ public class AllocationCalculator {
 		
 		int allocation = employee.getType().getAllocation();
 		for(Employee subordinate: employee.getSubordinates()) {
-			allocation += subordinate.getType().getAllocation();
+			allocation += calculateExpenseAllocation(subordinate);
 		}
 		
 		return allocation;
