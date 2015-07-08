@@ -6,18 +6,23 @@ import org.junit.Test;
 
 public class EmployeeTest {
 
+	@Test(expected=UnsupportedOperationException.class)
+	public void shouldReturnUnmodifiableSetOfEmployees() {
+		fail();
+	}
+	
 	@Test(expected=IllegalStateException.class)
-	public void shouldThrowExceptionWhenSubordinateAddedToDeveloper() {
+	public void shouldThrowIllegalStateExceptionWhenSubordinateAddedToDeveloper() {
 		fail();
 	}
 
 	@Test(expected=IllegalStateException.class)
-	public void shouldThrowExceptionWhenSubordinateAddedToQA() {
+	public void shouldThrowIllegalStateExceptionWhenSubordinateAddedToQA() {
 		fail();
 	}
 	
-	@Test
-	public void shouldDoNothingWhenNullSubordinateAdded() {
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldThrowIllegalArgumentExceptionWhenNullSubordinateAdded() {
 		fail();
 	}
 	
