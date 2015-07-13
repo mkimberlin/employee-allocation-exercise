@@ -1,6 +1,5 @@
 package com.michaelkimberlin.exercises.allocation;
 
-import static org.junit.Assert.fail;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -9,6 +8,9 @@ import org.junit.Test;
 import com.michaelkimberlin.exercises.allocation.model.Employee;
 import com.michaelkimberlin.exercises.allocation.model.EmployeeType;
 
+/**
+ * Unit tests exercising the AllocationCalculator's behavior
+ */
 public class AllocationCalculatorTest {
 
 	@Test(expected=IllegalArgumentException.class)

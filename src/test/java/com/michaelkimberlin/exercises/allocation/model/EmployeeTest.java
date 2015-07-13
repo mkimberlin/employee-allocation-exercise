@@ -7,6 +7,9 @@ import static org.hamcrest.Matchers.empty;
 
 import org.junit.Test;
 
+/**
+ * Unit tests exercising the Employee class' behavior
+ */
 public class EmployeeTest {
 
 	@Test(expected=UnsupportedOperationException.class)

@@ -43,15 +43,30 @@ public class Employee {
 		return this;
 	}
 
+	/**
+	 * Removes any existing subordinates from this Employee
+	 * 
+	 * @return this employee
+	 */
 	public Employee clearSubordinates() {
 		subordinates.clear();
 		return this;
 	}
 	
+	/**
+	 * Retrieves an immutable set of this Employee's subordinates
+	 * 
+	 * @return an ImmutableSet of subordinates
+	 */
 	public Set<Employee> getSubordinates() {
 		return ImmutableSet.copyOf(subordinates);
 	}
 
+	/**
+	 * This employee's role
+	 * 
+	 * @return  the EmployeeType representing this employee's role
+	 */
 	public EmployeeType getType() {
 		return type;
 	}
